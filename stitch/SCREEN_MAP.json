@@ -1,0 +1,29 @@
+[
+  {
+    "screenId": "18a30e16eebd4ca69059ef3de5853917",
+    "name": "Record Editor - Product",
+    "type": "form",
+    "description": "Record Editor - Product screen",
+    "surfaceIds": [
+      "SURF_RECORD_EDITOR"
+    ]
+  },
+  {
+    "screenId": "fe36d3edea844693970948a835c69aa9",
+    "name": "Record Operations - Product",
+    "type": "app-screen",
+    "description": "Record Operations - Product screen",
+    "surfaceIds": [
+      "SURF_RECORD_OPERATIONS"
+    ]
+  },
+  {
+    "screenId": "9183166e52134746b0c749b2df681b51",
+    "name": "Insights - Product",
+    "type": "app-screen",
+    "description": "Insights - Product screen",
+    "surfaceIds": [
+      "SURF_INSIGHTS"
+    ]
+  }
+]

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Record Operations - Product</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#fbe106",
+                        "outline": "#7d775f",
+                        "on-primary-fixed-variant": "#504700",
+                        "tertiary-fixed": "#58f8ff",
+                        "surface": "#f8f9ff",
+                        "surface-tint": "#6b5f00",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#dce9ff",
+                        "outline-variant": "#cec7ab",
+                        "on-primary-fixed": "#201c00",
+                        "tertiary-container": "#34f7ff",
+                        "on-surface-variant": "#4b4732",
+                        "on-surface": "#0b1c30",
+                        "primary-fixed": "#fee40e",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#f8f9ff",
+                        "on-tertiary-fixed": "#002021",
+                        "on-primary-container": "#706300",
+                        "secondary-fixed": "#e5e2e3",
+                        "surface-dim": "#cbdbf5",
+                        "primary": "#6b5f00",
+                        "secondary": "#5f5e5f",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#d3e4fe",
+                        "on-secondary-container": "#636263",
+                        "secondary-fixed-dim": "#c8c6c7",
+                        "on-tertiary-fixed-variant": "#004f52",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#213145",
+                        "on-tertiary-container": "#006e72",
+                        "on-background": "#0b1c30",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#474647",
+                        "tertiary-fixed-dim": "#00dce3",
+                        "primary-fixed-dim": "#dfc700",
+                        "surface-container": "#e5eeff",
+                        "inverse-primary": "#dfc700",
+                        "secondary-container": "#e2dfe0",
+                        "background": "#f8f9ff",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#00696d",
+                        "on-secondary-fixed": "#1b1b1c",
+                        "surface-container-low": "#eff4ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "base": "4px",
+                        "margin-safe": "24px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "gutter": "12px"
+                    },
+                    "fontFamily": {
+                        "mono-data": ["JetBrains Mono"],
+                        "display-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "label-caps": ["Inter"]
+                    },
+                    "fontSize": {
+                        "mono-data": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "display-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<nav class="bg-surface-container-lowest dark:bg-surface-container-low border-r border-outline-variant dark:border-outline flex flex-col h-full py-md px-sm docked h-screen left-0 w-64 flex-shrink-0 z-20">
+<div class="mb-lg px-sm">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-sm">System Health</div>
+<div class="font-body-md text-body-md text-on-surface">Global Status: Operational</div>
+</div>
+<div class="flex-1 space-y-sm">
+<a class="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container font-semibold rounded-lg font-body-md text-body-md transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-on-primary-container">analytics</span>
+                Record Operations
+            </a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-outline hover:bg-surface-container-high hover:text-on-surface font-body-md text-body-md rounded-lg transition-all duration-150" href="#">
+<span class="material-symbols-outlined">edit_note</span>
+                Record Editor
+            </a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-outline hover:bg-surface-container-high hover:text-on-surface font-body-md text-body-md rounded-lg transition-all duration-150" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+                Insights
+            </a>
+</div>
+<div class="mt-auto space-y-sm">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-outline hover:bg-surface-container-high hover:text-on-surface font-body-md text-body-md rounded-lg transition-all duration-150" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+                Support
+            </a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-outline hover:bg-surface-container-high hover:text-on-surface font-body-md text-body-md rounded-lg transition-all duration-150" href="#">
+<span class="material-symbols-outlined">terminal</span>
+                Logs
+            </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col h-screen overflow-hidden">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-background flex justify-between items-center w-full px-md h-16 max-w-full docked full-width top-0 border-b border-outline-variant dark:border-outline z-10 flex-shrink-0">
+<div class="flex items-center gap-lg">
+<div class="font-display-md text-display-md font-bold text-on-surface dark:text-on-surface">StackLens Canary IconFix 3</div>
+</div>
+<div class="flex items-center gap-lg flex-1 justify-start ml-lg">
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full pl-[36px] pr-sm py-sm bg-surface-container-lowest border border-outline-variant rounded focus:border-on-surface focus:ring-0 font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant transition-colors" placeholder="Search records..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant dark:text-outline hover:text-on-surface hover:bg-surface-container-low p-sm rounded transition-colors duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant dark:text-outline hover:text-on-surface hover:bg-surface-container-low p-sm rounded transition-colors duration-200">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="text-on-surface-variant dark:text-outline hover:text-on-surface hover:bg-surface-container-low p-sm rounded transition-colors duration-200">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 overflow-auto p-lg bg-background flex flex-col gap-lg">
+<!-- Metrics Row -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter flex-shrink-0">
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-md flex flex-col gap-sm">
+<div class="font-label-caps text-label-caps text-on-surface-variant">TOTAL RECORDS</div>
+<div class="font-display-md text-display-md text-on-surface">1,492</div>
+<div class="font-mono-data text-mono-data text-primary flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span> +12% vs last week
+                    </div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-md flex flex-col gap-sm">
+<div class="font-label-caps text-label-caps text-on-surface-variant">CRITICAL RISKS</div>
+<div class="font-display-md text-display-md text-error">24</div>
+<div class="font-mono-data text-mono-data text-error flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">warning</span> Requires immediate action
+                    </div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-md flex flex-col gap-sm">
+<div class="font-label-caps text-label-caps text-on-surface-variant">PROJECT HEALTH</div>
+<div class="font-display-md text-display-md text-on-surface">94.2%</div>
+<div class="font-mono-data text-mono-data text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Stable operation
+                    </div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-md flex flex-col justify-center items-end gap-sm">
+<button class="bg-primary-container text-on-primary-fixed font-body-md text-body-md font-semibold px-md py-sm rounded flex items-center gap-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                        CREATE RECORD
+                    </button>
+<button class="bg-surface-container-lowest border border-outline-variant text-on-surface font-body-md text-body-md px-md py-sm rounded flex items-center gap-sm hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[20px]">refresh</span>
+                        RETRY LOAD
+                    </button>
+</div>
+</div>
+<!-- Main Data Area -->
+<div class="flex-1 flex gap-lg min-h-0">
+<!-- Data Table Container -->
+<div class="flex-1 bg-surface-container-lowest border border-outline-variant rounded flex flex-col overflow-hidden">
+<div class="bg-surface-container-low px-md py-sm border-b border-outline-variant flex justify-between items-center">
+<div class="font-headline-sm text-headline-sm text-on-surface">Recent Records</div>
+<div class="flex gap-sm">
+<select class="bg-surface-container-lowest border border-outline-variant rounded px-sm py-xs font-body-sm text-body-sm text-on-surface focus:border-on-surface focus:ring-0">
+<option>All Projects</option>
+<option>Project Alpha</option>
+<option>Project Beta</option>
+</select>
+<select class="bg-surface-container-lowest border border-outline-variant rounded px-sm py-xs font-body-sm text-body-sm text-on-surface focus:border-on-surface focus:ring-0">
+<option>All Risks</option>
+<option>Critical</option>
+<option>Warning</option>
+</select>
+</div>
+</div>
+<div class="flex-1 overflow-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-lowest sticky top-0 z-10 border-b border-outline-variant">
+<tr>
+<th class="px-md py-sm font-label-caps text-label-caps text-on-surface-variant font-medium">RECORD ID</th>
+<th class="px-md py-sm font-label-caps text-label-caps text-on-surface-variant font-medium">PROJECT</th>
+<th class="px-md py-sm font-label-caps text-label-caps text-on-surface-variant font-medium">STACK HEALTH</th>
+<th class="px-md py-sm font-label-caps text-label-caps text-on-surface-variant font-medium">RISK</th>
+<th class="px-md py-sm font-label-caps text-label-caps text-on-surface-variant font-medium">UPDATED</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low cursor-pointer transition-colors bg-surface-container-low">
+<td class="px-md py-sm font-mono-data text-mono-data text-on-surface">REC-8832</td>
+<td class="px-md py-sm text-on-surface">Alpha Core</td>
+<td class="px-md py-sm">
+<div class="flex items-center gap-xs">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<span class="text-on-surface">Failing</span>
+</div>
+</td>
+<td class="px-md py-sm">
+<span class="px-xs py-[2px] bg-error-container text-on-error-container rounded font-mono-data text-mono-data">CRITICAL</span>
+</td>
+<td class="px-md py-sm text-on-surface-variant">10 mins ago</td>
+</tr>
+<tr class="hover:bg-surface-container-low cursor-pointer transition-colors">
+<td class="px-md py-sm font-mono-data text-mono-data text-on-surface">REC-8831</td>
+<td class="px-md py-sm text-on-surface">Beta Sync</td>
+<td class="px-md py-sm">
+<div class="flex items-center gap-xs">
+<div class="w-2 h-2 rounded-full bg-primary-fixed-dim"></div>
+<span class="text-on-surface">Degraded</span>
+</div>
+</td>
+<td class="px-md py-sm">
+<span class="px-xs py-[2px] bg-surface-container-highest text-on-surface rounded font-mono-data text-mono-data">WARNING</span>
+</td>
+<td class="px-md py-sm text-on-surface-variant">1 hour ago</td>
+</tr>
+<tr class="hover:bg-surface-container-low cursor-pointer transition-colors">
+<td class="px-md py-sm font-mono-data text-mono-data text-on-surface">REC-8830</td>
+<td class="px-md py-sm text-on-surface">Gamma Web</td>
+<td class="px-md py-sm">
+<div class="flex items-center gap-xs">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="text-on-surface">Healthy</span>
+</div>
+</td>
+<td class="px-md py-sm">
+<span class="px-xs py-[2px] bg-surface-container text-on-surface rounded font-mono-data text-mono-data">LOW</span>
+</td>
+<td class="px-md py-sm text-on-surface-variant">2 hours ago</td>
+</tr>
+<tr class="hover:bg-surface-container-low cursor-pointer transition-colors">
+<td class="px-md py-sm font-mono-data text-mono-data text-on-surface">REC-8829</td>
+<td class="px-md py-sm text-on-surface">Delta API</td>
+<td class="px-md py-sm">
+<div class="flex items-center gap-xs">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="text-on-surface">Healthy</span>
+</div>
+</td>
+<td class="px-md py-sm">
+<span class="px-xs py-[2px] bg-surface-container text-on-surface rounded font-mono-data text-mono-data">LOW</span>
+</td>
+<td class="px-md py-sm text-on-surface-variant">4 hours ago</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Side Panel (Preview) -->
+<div class="w-80 bg-surface-container-lowest border border-outline-variant rounded flex flex-col flex-shrink-0 overflow-hidden">
+<div class="bg-surface-container-low px-md py-sm border-b border-outline-variant flex justify-between items-center">
+<div class="font-headline-sm text-headline-sm text-on-surface">Record Details</div>
+<button class="text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-md flex-1 overflow-auto flex flex-col gap-lg">
+<div>
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-xs">ID &amp; PROJECT</div>
+<div class="font-mono-data text-mono-data text-on-surface mb-xs">REC-8832</div>
+<div class="font-body-md text-body-md text-on-surface">Alpha Core - DB Migration</div>
+</div>
+<div>
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-xs">STATUS</div>
+<div class="flex items-center gap-sm">
+<span class="px-xs py-[2px] bg-error-container text-on-error-container rounded font-mono-data text-mono-data">CRITICAL RISK</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Stack Failing</span>
+</div>
+</div>
+<div class="border-t border-outline-variant pt-md">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-sm">ACTIVITY TIMELINE</div>
+<div class="relative pl-sm space-y-md border-l-2 border-outline-variant ml-xs">
+<div class="relative">
+<div class="absolute -left-[13px] top-1 w-2 h-2 rounded-full bg-error border border-surface-container-lowest"></div>
+<div class="font-body-sm text-body-sm text-on-surface font-semibold">Migration Failed</div>
+<div class="font-mono-data text-mono-data text-on-surface-variant">10:42 AM - System User</div>
+</div>
+<div class="relative">
+<div class="absolute -left-[13px] top-1 w-2 h-2 rounded-full bg-surface-container-highest border border-surface-container-lowest"></div>
+<div class="font-body-sm text-body-sm text-on-surface">Migration Started</div>
+<div class="font-mono-data text-mono-data text-on-surface-variant">10:30 AM - System User</div>
+</div>
+<div class="relative">
+<div class="absolute -left-[13px] top-1 w-2 h-2 rounded-full bg-surface-container-highest border border-surface-container-lowest"></div>
+<div class="font-body-sm text-body-sm text-on-surface">Pre-checks Completed</div>
+<div class="font-mono-data text-mono-data text-on-surface-variant">10:28 AM - Analyst_01</div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-md border-t border-outline-variant bg-surface-container-low flex gap-sm">
+<button class="flex-1 bg-surface-container-lowest border border-outline-variant text-on-surface font-body-sm text-body-sm py-sm rounded hover:bg-surface-variant transition-colors">
+                            VIEW LOGS
+                        </button>
+<button class="flex-1 bg-error text-on-error font-body-sm text-body-sm py-sm rounded hover:opacity-90 transition-opacity">
+                            ACKNOWLEDGE
+                        </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

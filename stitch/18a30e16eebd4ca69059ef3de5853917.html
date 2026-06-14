@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Record Editor - Product | StackLens</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#fbe106",
+                        "outline": "#7d775f",
+                        "on-primary-fixed-variant": "#504700",
+                        "tertiary-fixed": "#58f8ff",
+                        "surface": "#f8f9ff",
+                        "surface-tint": "#6b5f00",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#dce9ff",
+                        "outline-variant": "#cec7ab",
+                        "on-primary-fixed": "#201c00",
+                        "tertiary-container": "#34f7ff",
+                        "on-surface-variant": "#4b4732",
+                        "on-surface": "#0b1c30",
+                        "primary-fixed": "#fee40e",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#f8f9ff",
+                        "on-tertiary-fixed": "#002021",
+                        "on-primary-container": "#706300",
+                        "secondary-fixed": "#e5e2e3",
+                        "surface-dim": "#cbdbf5",
+                        "primary": "#6b5f00",
+                        "secondary": "#5f5e5f",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#d3e4fe",
+                        "on-secondary-container": "#636263",
+                        "secondary-fixed-dim": "#c8c6c7",
+                        "on-tertiary-fixed-variant": "#004f52",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#213145",
+                        "on-tertiary-container": "#006e72",
+                        "on-background": "#0b1c30",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#474647",
+                        "tertiary-fixed-dim": "#00dce3",
+                        "primary-fixed-dim": "#dfc700",
+                        "surface-container": "#e5eeff",
+                        "inverse-primary": "#dfc700",
+                        "secondary-container": "#e2dfe0",
+                        "background": "#f8f9ff",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#00696d",
+                        "on-secondary-fixed": "#1b1b1c",
+                        "surface-container-low": "#eff4ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "base": "4px",
+                        "margin-safe": "24px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "gutter": "12px"
+                    },
+                    "fontFamily": {
+                        "mono-data": ["JetBrains Mono"],
+                        "display-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "label-caps": ["Inter"]
+                    },
+                    "fontSize": {
+                        "mono-data": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "display-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Custom scrollbar for technical feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f8f9ff; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cec7ab; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #7d775f; 
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="flex justify-between items-center w-full px-md h-16 max-w-full bg-surface dark:bg-background text-primary dark:text-primary-fixed border-b border-outline-variant dark:border-outline flat no shadows sticky top-0 z-50">
+<div class="flex items-center gap-md">
+<span class="font-display-md text-display-md font-bold text-on-surface dark:text-on-surface">StackLens Canary IconFix 3</span>
+<div class="hidden md:flex ml-lg gap-sm items-center">
+<!-- Search Bar on Left -->
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-2 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full pl-8 pr-3 py-1.5 bg-surface-container text-on-surface border border-outline-variant rounded focus:outline-none focus:border-on-surface-variant focus:ring-1 focus:ring-on-surface-variant font-body-sm text-body-sm transition-colors" placeholder="Search operations..." type="text"/>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-sm text-on-surface-variant dark:text-outline hover:text-on-surface hover:bg-surface-container-low transition-colors duration-200 rounded flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-sm text-on-surface-variant dark:text-outline hover:text-on-surface hover:bg-surface-container-low transition-colors duration-200 rounded flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<button class="p-sm text-on-surface-variant dark:text-outline hover:text-on-surface hover:bg-surface-container-low transition-colors duration-200 rounded flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</nav>
+<div class="flex flex-1 overflow-hidden">
+<!-- SideNavBar -->
+<aside class="docked h-screen left-0 w-64 border-r border-outline-variant dark:border-outline flat no shadows bg-surface-container-lowest dark:bg-surface-container-low flex flex-col h-full py-md px-sm hidden md:flex z-40">
+<div class="mb-lg px-sm">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant">System Health</h2>
+<div class="flex items-center gap-2 mt-1">
+<span class="w-2 h-2 rounded-full bg-[#10b981]" title="Application Status Indicator"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Global Status: Operational</span>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded text-on-surface-variant dark:text-outline hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-on-surface transition-colors" data-icon="analytics">analytics</span>
+<span class="font-body-md text-body-md">Record Operations</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded bg-primary-container text-on-primary-container font-semibold rounded-lg opacity-80 scale-[0.99] group" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit_note">edit_note</span>
+<span class="font-body-md text-body-md">Record Editor</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-on-surface-variant dark:text-outline hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-on-surface transition-colors" data-icon="monitoring">monitoring</span>
+<span class="font-body-md text-body-md">Insights</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-md space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors group" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="help_outline">help_outline</span>
+<span class="font-body-sm text-body-sm">Support</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors group" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="terminal">terminal</span>
+<span class="font-body-sm text-body-sm">Logs</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto bg-background p-margin-safe relative">
+<!-- Unsaved Changes Banner (Contextual) -->
+<div class="bg-primary-container/20 border border-primary-container rounded px-md py-sm flex items-center justify-between mb-lg">
+<div class="flex items-center gap-sm text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-surface-tint">info</span>
+<span class="font-body-sm text-body-sm">You have unsaved changes. Exiting will discard your modifications.</span>
+</div>
+</div>
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-md mb-lg">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Product Entity</span>
+<span class="material-symbols-outlined text-[14px] text-outline-variant">chevron_right</span>
+<span class="font-mono-data text-mono-data text-on-surface-variant">NEW_RECORD</span>
+</div>
+<h1 class="font-headline-sm text-headline-sm text-on-surface">Record Editor</h1>
+</div>
+<div class="flex items-center gap-sm">
+<button class="px-md py-sm bg-surface-container-lowest border border-outline text-on-surface font-body-md text-body-md rounded hover:bg-surface-container-high transition-colors focus:ring-2 focus:ring-outline-variant focus:outline-none flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">close</span>
+                        Cancel
+                    </button>
+<button class="px-md py-sm bg-primary-container border border-surface-tint text-on-primary-fixed font-body-md text-body-md rounded hover:bg-primary-fixed transition-colors focus:ring-2 focus:ring-surface-tint focus:outline-none flex items-center gap-2 font-semibold shadow-sm">
+<span class="material-symbols-outlined text-[18px]">save</span>
+                        Save Record
+                    </button>
+</div>
+</div>
+<!-- Editor Form Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Primary Form Column -->
+<div class="lg:col-span-8 space-y-md">
+<!-- Basic Information Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-lg">
+<h2 class="font-label-caps text-label-caps text-on-surface border-b border-outline-variant pb-sm mb-md uppercase tracking-wider flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">article</span>
+                            Core Attributes
+                        </h2>
+<div class="space-y-md">
+<!-- Record Name -->
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1 flex items-center justify-between" for="record_name">
+<span>Record Name <span class="text-error">*</span></span>
+</label>
+<input class="w-full bg-surface text-on-surface border border-outline-variant rounded px-3 py-2 focus:outline-none focus:border-on-surface focus:ring-1 focus:ring-on-surface font-body-md text-body-md transition-all" id="record_name" placeholder="e.g., Auth Service V2" type="text"/>
+</div>
+<!-- Module Project ID (with error state) -->
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1 flex items-center justify-between" for="project_id">
+<span>Module Project ID <span class="text-error">*</span></span>
+<span class="font-mono-data text-mono-data text-outline">Format: PRJ-XXXX</span>
+</label>
+<div class="relative">
+<input aria-invalid="true" class="w-full bg-error-container/10 text-on-surface border border-error rounded px-3 py-2 pr-10 focus:outline-none focus:ring-1 focus:ring-error font-mono-data text-mono-data transition-all" id="project_id" type="text" value="Invalid_String_123"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-error text-[18px]">error</span>
+</div>
+<p class="mt-1 font-body-sm text-body-sm text-error flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                                    Module Project ID must be a valid project string.
+                                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Stack Version -->
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1" for="stack_version">
+                                        Stack Version <span class="text-error">*</span>
+</label>
+<select class="w-full bg-surface text-on-surface border border-outline-variant rounded px-3 py-2 focus:outline-none focus:border-on-surface focus:ring-1 focus:ring-on-surface font-mono-data text-mono-data transition-all appearance-none cursor-pointer" id="stack_version">
+<option value="">Select version...</option>
+<option value="v1.0.0">v1.0.0 (Stable)</option>
+<option value="v1.1.0-beta">v1.1.0-beta</option>
+<option value="v2.0.0-rc1">v2.0.0-rc1</option>
+</select>
+</div>
+<!-- Risk Assessment Level -->
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1" for="risk_level">
+                                        Risk Assessment Level <span class="text-outline-variant text-[10px] ml-1">(Optional)</span>
+</label>
+<select class="w-full bg-surface text-on-surface border border-outline-variant rounded px-3 py-2 focus:outline-none focus:border-on-surface focus:ring-1 focus:ring-on-surface font-body-md text-body-md transition-all appearance-none cursor-pointer" id="risk_level">
+<option value="low">Low Risk</option>
+<option value="medium">Medium Risk</option>
+<option value="high">High Risk</option>
+<option value="critical">Critical</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+<!-- Description Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-lg">
+<div class="flex items-center justify-between border-b border-outline-variant pb-sm mb-md">
+<h2 class="font-label-caps text-label-caps text-on-surface uppercase tracking-wider flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">notes</span>
+                                Description
+                            </h2>
+<span class="font-body-sm text-body-sm text-outline-variant">Markdown supported</span>
+</div>
+<div>
+<textarea class="w-full bg-surface text-on-surface border border-outline-variant rounded px-3 py-2 focus:outline-none focus:border-on-surface focus:ring-1 focus:ring-on-surface font-mono-data text-mono-data transition-all resize-y" id="description" placeholder="Enter detailed operational description..." rows="6"></textarea>
+</div>
+</div>
+</div>
+<!-- Secondary Context Column -->
+<div class="lg:col-span-4 space-y-md">
+<!-- Metadata Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-md">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant border-b border-outline-variant pb-sm mb-sm uppercase tracking-wider">System Metadata</h3>
+<div class="space-y-sm">
+<div class="flex justify-between items-center py-1 border-b border-surface-container-high last:border-0">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Created By</span>
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">person</span>
+                                    System Admin
+                                </span>
+</div>
+<div class="flex justify-between items-center py-1 border-b border-surface-container-high last:border-0">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Last Modified</span>
+<span class="font-mono-data text-mono-data text-on-surface">--</span>
+</div>
+<div class="flex justify-between items-center py-1 border-b border-surface-container-high last:border-0">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Environment</span>
+<span class="px-2 py-0.5 bg-surface-container border border-outline-variant rounded font-mono-data text-[10px] text-on-surface">PRODUCTION</span>
+</div>
+</div>
+</div>
+<!-- Validation Summary Card -->
+<div class="bg-error-container/5 border border-error/20 rounded p-md">
+<h3 class="font-label-caps text-label-caps text-error border-b border-error/20 pb-sm mb-sm uppercase tracking-wider flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">rule</span>
+                            Validation Issues (1)
+                        </h3>
+<ul class="space-y-2 mt-sm">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[14px] text-error mt-0.5">circle</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant"><strong class="text-error font-medium">Project ID:</strong> Invalid format. Must follow PRJ-XXXX convention.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

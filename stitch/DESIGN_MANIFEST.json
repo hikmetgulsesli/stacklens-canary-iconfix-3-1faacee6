@@ -1,0 +1,35 @@
+[
+  {
+    "screenId": "18a30e16eebd4ca69059ef3de5853917",
+    "title": "Record Editor - Product",
+    "htmlFile": "18a30e16eebd4ca69059ef3de5853917.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2Q2Y2UyOWRmMDk5NTRhOWM4NjRlNzFhNWRkZWQ0ODQwEgsSBxCN19Wi9xcYAZIBJAoKcHJvamVjdF9pZBIWQhQxNDA4Mjk2OTg3NzM2MTQ2NDY2MQ&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/stacklens-canary-iconfix-3-1faacee6/stitch/18a30e16eebd4ca69059ef3de5853917.html",
+    "surfaceIds": [
+      "SURF_RECORD_EDITOR"
+    ]
+  },
+  {
+    "screenId": "fe36d3edea844693970948a835c69aa9",
+    "title": "Record Operations - Product",
+    "htmlFile": "fe36d3edea844693970948a835c69aa9.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzQwNDFhMjVmYjQxYzQxMjI5MTZkNDYzZWZhOTJhZmViEgsSBxCN19Wi9xcYAZIBJAoKcHJvamVjdF9pZBIWQhQxNDA4Mjk2OTg3NzM2MTQ2NDY2MQ&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/stacklens-canary-iconfix-3-1faacee6/stitch/fe36d3edea844693970948a835c69aa9.html",
+    "surfaceIds": [
+      "SURF_RECORD_OPERATIONS"
+    ]
+  },
+  {
+    "screenId": "9183166e52134746b0c749b2df681b51",
+    "title": "Insights - Product",
+    "htmlFile": "9183166e52134746b0c749b2df681b51.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzg3MjE4MDU3MDUyNzQwY2Y4MjZhYTZkZDUwZDY5YTk4EgsSBxCN19Wi9xcYAZIBJAoKcHJvamVjdF9pZBIWQhQxNDA4Mjk2OTg3NzM2MTQ2NDY2MQ&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/stacklens-canary-iconfix-3-1faacee6/stitch/9183166e52134746b0c749b2df681b51.html",
+    "surfaceIds": [
+      "SURF_INSIGHTS"
+    ]
+  }
+]
